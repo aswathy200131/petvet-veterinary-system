@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% if msgg %}
+<script>
+    alert("{{msgg}}")
+</script>
+{% endif %}
+
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    window.location.href="../login/"
+</script>
+{% endif %}
+<!-- Mirrored from brandio.io/envato/iofrm/html/login3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Dec 2019 07:12:19 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Vet</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'log_css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'log_css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'log_css/iofrm-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'log_css/iofrm-theme3.css' %}">
+</head>
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="#">
+                <div class="logo">
+                    <img class="logo-size" src="{% static 'log_images/logo-light.svg" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder">
+                <div class="bg"></div>
+                <div class="info-holder">
+
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>REGISTER  HERE</h3>
+                        <p>Access to the most Beautifull  Pets World.</p>
+                        <div class="page-links">
+                            <a href="../owner_register/" >Owner</a><a href="../walker_register/">Dog Wlkers</a><a href="../clinic_register/" class="active">Vetinery</a><a href="../shop_register/">Pet Centre</a>
+                        </div>
+                        <!-- <div class="alert alert-warning alert-dismissible fade show with-icon" role="alert">
+                            Please fill the following form with your information
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div> -->
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input class="form-control" type="text" name="name" placeholder="Clinic Name" pattern="[A-Za-z]{1}[A-Za-z\s]{2,32}" title="Please use only alphabets and space" required>
+                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                            <input class="form-control" type="text" name="phone1" placeholder="Main Contact Number" pattern="[6-9]{1}[0-9]{9}" title="Phone Number Should be 10 digts" required>
+                            <input class="form-control" type="text" name="phone2" placeholder="Secondary Contact Number" pattern="[6-9]{1}[0-9]{9}" title="Phone Number Should be 10 digts" required>
+                            <textarea class="form-control" rows="5" name="address" placeholder="Address" required></textarea>
+                            <textarea class="form-control" rows="5" name="available" placeholder="Opening Time : 
+eg* (MON  4pm - 5pm)
+    (TUE  4pm - 5pm)" required></textarea>
+                            
+                            <input class="form-control" type="password" name="password" placeholder="Password" pattern=".{6,16}" title="Password should contain atleast 6 characters" id="myInput" required>
+
+                            <input class="form-control" type="checkbox"  onclick="myFunction()">
+                                    <label onclick="myFunction()">show password</label>
+                            <div class="form-button">
+                                <button id="submit" type="submit" name="clinic_submit" class="ibtn">REGISTER</button> 
+                                <!-- <a href="#">Forget password?</a> -->
+                            </div>
+                        </form>
+                       
+                            <!-- script for show password -->
+                            <script>
+                                function myFunction() {
+                                    debugger;
+                                    var x = document.getElementById("myInput");
+                                    if (x.type === "password") {
+                                        x.type = "text";
+                                    } else {
+                                        x.type = "password";
+                                    }
+                                }
+                            </script>
+                            <a href="../login/"> <h6><b>LOGIN</b></h6></a>
+
+                            <!-- //script for show password -->
+                        <!-- <div class="other-links">
+                            <span>Or login with</span><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-google"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'log_js/jquery.min.js' %}"></script>
+<script src="{% static 'log_js/popper.min.js' %}"></script>
+<script src="{% static 'log_js/bootstrap.min.js' %}"></script>
+<script src="{% static 'log_js/main.js' %}"></script>
+</body>
+
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+    </script>
+
+<!-- Mirrored from brandio.io/envato/iofrm/html/login3.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Dec 2019 07:12:21 GMT -->
+</html>

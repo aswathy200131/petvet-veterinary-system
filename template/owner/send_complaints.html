@@ -1,0 +1,99 @@
+
+{% extends 'owner_header_footer.html' %}
+{% block complaints %}
+{% load static %}
+
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Report Complaints	</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../owner_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Send Complaints</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+	<!-- CONTENT -->
+	<div id="class" class="">
+		<div class="content-wrap">
+			<div class="container">
+
+				
+
+				<div class="row">
+					<div class="col-sm-12 col-md-12 mb-5">
+						<h2 class="section-heading text-center text-primary no-after mb-5">
+							Send Us Your Complaint
+						</h2>
+						<p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+					</div>
+
+
+
+					<div class="col-12 col-sm-12 col-md-12">
+						<form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+                            {% csrf_token %}
+							<div class="row">
+								
+								
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" id="p_subject" name="sub" placeholder="Subject">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" id="center" name="name" placeholder="Enter Veterinary / Pet Shop Name">
+										<div class="help-block with-errors"></div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								 <textarea id="p_message" class="form-control" name="complaint" rows="6" placeholder="Enter Your Complaint"></textarea>
+								<div class="help-block with-errors"></div>
+							</div>
+							<div class="form-group">
+								<div class="text-center">
+									<div id="success"></div>
+									<input type="submit" name="submit" class="btn btn-primary" value="SEND COMPLAINT">
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+    </div>
+    
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+{% endblock %}
+
+
+

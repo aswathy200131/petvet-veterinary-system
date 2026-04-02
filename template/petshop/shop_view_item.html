@@ -1,0 +1,122 @@
+
+{% extends 'pet_header_footer.html' %}
+{% block shop_view_item %}
+{% load static %}
+    
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Product</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../admin_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Product Item	</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+<!-- CONTENT -->
+<div id="class" class="">
+  <div class="content-wrap">
+    <div class="container">
+
+      
+      <a href="../del_product?reg_id={{data.0.0}}" class="btn btn-primary" style="margin-left: 90%; background-color: red;">Delete Product</a>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 mb-5">
+          <h2 class="section-heading text-center text-primary no-after mb-5">
+           Product Item
+          </h2>
+          <p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+        </div>
+        
+
+        <div class="col-12 col-sm-12 col-md-12">
+          <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+                          {% csrf_token %}
+            <div class="row">
+              
+              
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" value="{{data.0.4}}" pattern="[A-Za-z]{1}[A-Za-z\s]{2,32}" placeholder="Product Name" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="center" name="amt" placeholder="Rate " value="{{data.0.5}}" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              
+              
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="quan" value="{{data.0.6}}" pattern="[0-9]{1,4}"  placeholder="Quantity Available" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              
+            
+
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" name="desc" rows="6" placeholder="Description" value="{{data.0.7}}" required>{{data.0.7}}</textarea>
+
+                  <!-- <input type="text" class="form-control" name="password" value="{{data.0.10}}" pattern=".{6,16}" placeholder="password" id="myInput" required> -->
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              
+          </div>
+      
+
+
+         
+        
+            <div class="form-group">
+              <div class="text-center">
+                <div id="success"></div>
+                <input type="submit" name="submit" class="btn btn-primary" value="Update Product">
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  
+  <script>
+      if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+      }
+      </script>
+{% endblock %}
+
+
+

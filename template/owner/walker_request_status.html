@@ -1,0 +1,134 @@
+
+{% extends 'owner_header_footer.html' %}
+{% block walker_request_status %}
+{% load static %}
+
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Request Status</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../owner_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Request Status</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div id="class" class="">
+  
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 95%;
+      margin-left: 2%;
+      border: #000000;
+      
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+        background-color: #3C2800;
+        color: white;
+    }
+    td{
+        color: black;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <br><br>
+<table >
+    <tr >
+        <th> No</th>
+        <!-- <th>Image</th> -->
+        <th>Dog Walker Name</th>
+        <th>Email ID</th>
+        <th>Phone</th>
+        <th>Rate/Hour</th>
+        <th>Opted Timing</th>
+        <th>Status</th>
+        <th>Amount</th>
+        <th>Message</th>
+        <!-- <th colspan="2"><center>Action</center></th> -->
+        <th ><center>Action</center></th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td><td>{{d.12}}</td><td>{{d.13}}</td><td>{{d.14}}</td><td>{{d.17}}</td><td>{{d.4}}</td>
+        {% if d.8 == 'send' %}
+        <td style='color: blueviolet;'>Send</td>
+        {% endif %}
+        {% if d.8 == 'approve' %}
+        <td style='color: green'>Approved</td>
+        {% endif %}
+        {% if d.8 == 'reject' %}
+        <td style='color: red'>Rejected</td>
+        {% endif %}
+
+
+        {% if d.6 == None %}
+        <td ><center>----</center></td>
+        {% endif %}
+
+
+        {% if d.6 != None %}
+        <td style='color: blueviolet;'>{{d.6}} /-</td>
+        {% endif %}
+       
+        {% if d.9 == None %}
+        <td ><center>----</center></td>
+        {% endif %}
+
+
+        {% if d.9 != None %}
+        <td style='color: blueviolet;'>{{d.9}}</td>
+        {% endif %}
+       
+        
+        <!-- <td><center><a href="../request_action?req_id={{d.0}}&action=approve"><img src="{% static 'images/tick1.png' %}" width="30px;" height="30px;"></a></center></td> -->
+        <td><center><a href="../request_action?req_id={{d.0}}"><img src="{% static 'images/cancel.png' %}" width="30px;" height="30px;"></a></center></td>
+    </tr>
+    {% endfor %}
+  </table><br>
+  {% if msg %}
+  <label style="color: red; margin-left: 45%;"><center>{{msg}}</center></label>
+  
+{% endif %}
+<br><br><br><br>
+        </div>
+    
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+{% endblock %}
+
+
+

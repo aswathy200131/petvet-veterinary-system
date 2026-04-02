@@ -1,0 +1,86 @@
+
+{% extends 'admin_header_footer.html' %}
+{% block view_complaints %}
+{% load static %}
+    
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'admin_images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Complaints	</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../admin_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Complaints	</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 95%;
+      margin-left: 2%;
+      border: #000000;
+      
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+        background-color: #3C2800;
+        color: white;
+    }
+    td{
+        color: black;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <br><br>
+<table >
+    <tr >
+        <th> No</th>
+        <!-- <th>Image</th> -->
+        <th>Owner Name</th>
+        <th>Email ID</th>
+        <th>Phone </th>
+        <th>Subject</th>
+        <th>Center Name</th>
+        <th>Complaint</th>
+        <th>Posted_date</th>
+        <!-- <th colspan="2"><center>Action</center></th> -->
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td><td>{{d.7}}</td><td>{{d.8}}</td><td>{{d.9}}</td><td>{{d.2}}<d><td>{{d.3}}</td><td>{{d.4}}</td><td>{{d.5}}</td>
+        <!-- <td><center><a href="../shop_action?reg_id={{d.0}}&action=approve"><img src="{% static 'admin_images/tick1.png' %}" width="30px;" height="30px;"></a></center></td>
+        <td><center><a href="../shop_action?reg_id={{d.0}}&action=remove&type=req"><img src="{% static 'admin_images/cancel.png' %}" width="30px;" height="30px;"></a></center></td> -->
+    </tr>
+    {% endfor %}
+  </table><br>
+  {% if msg %}
+  <label style="color: red; margin-left: 45%;"><center>{{msg}}</center></label>
+  
+{% endif %}
+<br><br><br><br>
+{% endblock %}
+
+
+

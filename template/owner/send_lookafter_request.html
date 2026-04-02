@@ -1,0 +1,216 @@
+
+{% extends 'owner_header_footer.html' %}
+{% block send_lookafter_request %}
+{% load static %}
+
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Send Request</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../owner_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pet LookAfter Request</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div id="class" class="">
+    <div class="content-wrap">
+      <div class="container">
+  
+        
+  
+        <div class="row">
+          <div class="col-sm-12 col-md-12 mb-5">
+            <h2 class="section-heading text-center text-primary no-after mb-5">
+             Request Form
+            </h2>
+            <p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+          </div>
+  
+  
+          <div class="col-12 col-sm-12 col-md-12">
+            <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+                            {% csrf_token %}
+              <div class="row">
+                
+                
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <label></label>
+
+                    <input type="text" class="form-control" name="name" placeholder="Breeds Name" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group">
+                      <label>From</label>
+                    <input type="date" class="form-control" name="from" min={{dt}} placeholder="Timing Needed (*Specify the date and time)" required>
+                    
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              </div>
+  
+            
+              <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label>To</label>
+
+                      <input type="date" class="form-control" name="to" min="{{dt}}" placeholder="Timing Needed (*Specify the date and time)" required>
+  
+                      <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+              
+                
+                
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group">
+                 <textarea class="form-control" name="desc" rows="6" placeholder="Describe your pet" required></textarea>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+              </div>
+          
+              <div class="form-group">
+                <div class="text-center">
+                  <div id="success"></div>
+                  <input type="submit" name="submit" class="btn btn-primary" value="Send Request" >
+                </div>
+              </div>
+            </form>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    </div>
+					<!-- Item 2 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet06.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Mellisa Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 3 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet07.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Aldizza Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 4 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet08.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Ronald Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 5 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet09.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. James Doel</</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 6 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet10.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Thomas Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+    
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+{% endblock %}
+
+
+

@@ -1,0 +1,89 @@
+
+{% extends 'admin_header_footer.html' %}
+{% block walkers_request %}
+{% load static %}
+
+    
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Dog Walkers Requests	</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../admin_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dog Walkers Requests	</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 95%;
+      margin-left: 2%;
+      border: #000000;
+      
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+        background-color: #3C2800;
+        color: white;
+    }
+    td{
+        color: black;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <br><br>
+<table >
+    <tr >
+        <th> No</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Email ID</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Timing</th>
+        <th>Rate/Hour</th>
+        <th colspan="2"><center>Action</center></th>
+    </tr>
+    <!-- <img src="/static/smedia/Iftresham Ali_Natrure_ZExmR2Vc.jpg" width="30px" height="30px"> -->
+
+    {% for d in data %}
+
+    <tr>
+        <td>{{ forloop.counter }}</td><td><img src="../static{{d.1}}" width="30px" height="30px"></td><td>{{d.2}}</td><td>{{d.3}}</td><td>{{d.4}}</td><td>{{d.5}}</td><td>{{d.6}}</td><td>{{d.7}}</td>
+        <td><center><a href="../walker_action?reg_id={{d.0}}&action=approve"><img src="{% static 'images/tick1.png' %}" width="30px;" height="30px;"></a></center></td>
+        <td><center><a href="../walker_action?reg_id={{d.0}}&action=remove&type=req"><img src="{% static 'images/cancel.png' %}" width="30px;" height="30px;"></a></center></td>
+    </tr>
+    {% endfor %}
+  </table><br>
+  {% if msg %}
+  <label style="color: red; margin-left: 45%;"><center>{{msg}}</center></label>
+  <br><br><br><br>
+  
+{% endif %}
+{% endblock %}
+
+
+

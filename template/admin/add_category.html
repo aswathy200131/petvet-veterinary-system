@@ -1,0 +1,147 @@
+
+{% extends 'admin_header_footer.html' %}
+{% block add_category %}
+{% load static %}
+    
+{% if msgg %}
+<script>
+    alert("{{msgg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Category</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../admin_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Category</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+<!-- CONTENT -->
+<div id="class" class="">
+  <div class="content-wrap">
+    <div class="container">
+
+      
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 mb-5">
+          <h2 class="section-heading text-center text-primary no-after mb-5">
+           Add Category
+          </h2>
+          <p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+        </div>
+
+
+        <div class="col-12 col-sm-12 col-md-12">
+          <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+                          {% csrf_token %}
+            <div class="row">
+              
+              
+              <div class="col-sm-6 col-md-6" style="margin-left: 25%;">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="category"   placeholder="Category" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <!-- <input type="email" class="form-control" id="center" name="mail" placeholder="Email Id " value="{{data.0.3}}" required> -->
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              
+              
+        
+            <div class="form-group" style="margin-left: 43%;">
+              <div class="text-center" >
+                <div id="success"></div>
+                <input type="submit" name="submit" class="btn btn-primary" value="Add Category">
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 95%;
+      margin-left: 2%;
+      border: #000000;
+      
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+        background-color: #3C2800;
+        color: white;
+    }
+    td{
+        color: black;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    <br><br>
+<table >
+    <tr >
+        <th> No</th>
+        <!-- <th>Image</th> -->
+        <th>Category</th>
+        
+        <th><center>Action</center></th>
+    </tr>
+    {% for d in data %}
+    <tr>
+        <td>{{ forloop.counter }}</td><td>{{d.1}}</td>
+        <!-- <td><center><a href="../walker_action?reg_id={{d.0}}&action=approve"><img src="{% static 'images/tick1.png' %}" width="30px;" height="30px;"></a></center></td> -->
+        <td><center><a href="../cat_action?reg_id={{d.0}}"><img src="{% static 'images/cancel.png' %}" width="30px;" height="30px;"></a></center></td>
+    </tr>
+    {% endfor %}
+  </table><br>
+  {% if msg %}
+  <label style="color: red; margin-left: 45%;"><center>{{msg}}</center></label>
+  
+{% endif %}
+<br><br><br><br>
+  
+  <script>
+      if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+      }
+      </script>
+{% endblock %}
+
+
+

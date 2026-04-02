@@ -1,0 +1,152 @@
+
+{% extends 'pet_header_footer.html' %}
+{% block view_pet_detail %}
+{% load static %}
+    
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Pet Detail</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../pet_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pet Detail</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+<!-- CONTENT -->
+<div id="class" class="">
+  <div class="content-wrap">
+    <div class="container">
+
+      
+      <a href="../del_pet_detail?reg_id={{data.0.0}}" class="btn btn-primary" style="margin-left: 90%; background-color: red;">Delete Pet</a>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 mb-5">
+          <h2 class="section-heading text-center text-primary no-after mb-5">
+            Pet Detail
+          </h2>
+          <p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+        </div>
+        
+        <img src="../static{{data.0.2}}" width="150px;" height="150px;" id="output_image" style="margin-left: 43%;"><br><br>
+
+        <div class="col-12 col-sm-12 col-md-12">
+          <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+                          {% csrf_token %}
+            <div class="row">
+              
+              
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" value="{{data.0.3}}" pattern="[A-Za-z]{1}[A-Za-z\s]{2,32}" placeholder="Breed Name" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    <!-- <input class="form-control" type="file" Name="img" placeholder="img" value="{{data.0.2}}" accept="image/*" onchange="preview_image(event)" > -->
+                    <input type="text" class="form-control" name="age" value="{{data.0.4}}"  placeholder="Age of pet (Mention even if it is few Months)" required>
+
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              
+              
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group">
+                    <input type="text" class="form-control" name="amount" value="{{data.0.5}}" pattern="[0-9]{1,7}"  placeholder="Rate of Pet" required>
+
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                
+              
+  
+                <div class="col-sm-6 col-md-6">
+                  <div class="form-group">
+
+                      <!-- <textarea class="form-control" name="amount" rows="6" placeholder="Amount" pattern="[0-9]{1,7}" value="{{data.0.5}}" required>{{data.0.7}}</textarea> -->
+                      <input type="text" class="form-control" name="quan" value="{{data.0.6}}" pattern="[0-9]{1,3}"  placeholder="Number of Pets Available" required>
+
+                    <!-- <input type="text" class="form-control" name="password" value="{{data.0.10}}" pattern=".{6,16}" placeholder="password" id="myInput" required> -->
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+              
+              
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    <textarea class="form-control" name="desc" rows="6" placeholder="Description about the Pet" value="{{data.0.7}}" required>{{data.0.7}}</textarea>
+
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              
+            
+
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+
+                  <!-- <input type="text" class="form-control" name="password" value="{{data.0.10}}" pattern=".{6,16}" placeholder="password" id="myInput" required> -->
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              
+          </div>
+      
+
+
+         
+        
+            <div class="form-group">
+              <div class="text-center">
+                <div id="success"></div>
+                <input type="submit" name="submit" class="btn btn-primary" value="Update Pet Detail">
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  
+  <script>
+      if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+      }
+      </script>
+{% endblock %}
+
+
+

@@ -1,0 +1,188 @@
+
+{% extends 'owner_header_footer.html' %}
+{% block owner_view_walkers %}
+{% load static %}
+
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Dog Walkers</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../owner_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dog Walkers</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+	<!-- CONTENT -->
+	<div id="class" class="">
+		<div class="content-wrap">
+			<div class="container">
+
+				<div class="row">
+					
+					<!-- Item 1 -->
+					<div class="col-12 col-sm-6 col-md-4">
+                        
+						<div class="rs-team-1 mb-5">
+                            
+							<div class="media">	
+								<img src="/static{{data.0.1}}" alt="" class="img-fluid">
+								<!-- <div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div> -->
+							</div>
+							<div class="body">
+								<div class="title">{{data.0.2}}</div>
+                                <div class="text-primary">Rate/Hour : <b>{{data.0.7}} Rs</b></div>
+                                
+                            </div>
+                            
+                        </div>
+                        <a href="../walker_request_form?w_id={{data.0.0}}" class="btn btn-secondary" style="margin-left: 25%;"> Send Request</a>
+					</div>
+
+					<div class="col-12 col-sm-6 col-md-8">
+						<h3 class="text-secondary mb-1">{{data.0.2}}</h3>
+						<p class="text-primary">Email : {{data.0.3}}</p>
+						<p class="lead text-black">Contact Number : {{data.0.4}}</p>
+						<p><b>Address :</b> {{data.0.5}}</p>
+						<div class="spacer-30"></div>
+						<h3 class="text-secondary mb-4">Availability</h3>
+						<p>{{data.0.6}}</p>
+						<!-- <p>Saturday : 09.00 am - 20.00 pm</p> -->
+					</div>
+
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+					<!-- Item 2 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet06.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Mellisa Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 3 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet07.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Aldizza Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 4 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet08.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Ronald Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 5 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet09.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. James Doel</</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+					<!-- Item 6 -->
+					<!-- <div class="col-12 col-sm-6 col-md-4">
+						<div class="rs-team-1 mb-5">
+							<div class="media">
+								<a href="page-single-staff.html"><img src="images/vet10.jpg" alt="" class="img-fluid"></a>
+								<div class="sosmed-icon">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-google-plus"></i></a>
+								</div>
+							</div>
+							<div class="body">
+								<div class="title"><a href="page-single-staff.html">Dr. Thomas Doel</a></div>
+								<div class="text-primary">Veterinary</div>
+							</div>
+						</div>
+					</div> -->
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+    
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+{% endblock %}
+
+
+

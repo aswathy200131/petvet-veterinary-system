@@ -1,0 +1,308 @@
+
+{% extends 'owner_header_footer.html' %}
+{% block view_pet_centre_profile %}
+{% load static %}
+
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Pet Centres</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../owner_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Pet Centres</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+
+	<!-- CONTENT -->
+	<div id="class" class="">
+		<div class="content-wrap">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-12 col-sm-12 col-md-4 order-last">
+
+						<div class="widget categories">
+							<ul class="category-nav">
+								<li class="active"><a href="#">Email : {{data.0.2}}</a></li>
+								<li><a href="">Contact No : {{data.0.3}}</a></li>
+                                <li><a href="#">Contact No 2 : {{data.0.4}}</a></li>
+                                {% if data.0.7 == 'accepted' %}
+
+                                <li><a href="#" style="color: darkblue;"><b>Look After your pets...</b></a></li>                             
+                                
+                                {% endif %}
+
+
+								<!-- <li><a href="#">Preventive Medicine</a></li>
+								<li><a href="#">Pet Diagnostics</a></li>
+								<li><a href="#">Patient Departement</a></li> -->
+							</ul>
+						</div>
+
+						<div class="promo-ads bg-secondary">
+							<div class="content text-white">
+								<h4 class="title text-primary">Opening Hours</h4>
+								<p>Our support available to help you . We provide our best.</p>
+								<ul class="list-unstyled">
+									<li>
+										{{data.0.6}}
+									</li>
+									<!-- <li>
+										Saturday : 09.00 am - 20.00 pm
+									</li>
+									<li>
+										Sunday :  We Are Closed
+									</li> -->
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-12 col-sm-12 col-md-8">
+						<img src="images/services-img-detail.jpg" alt="" class="img-fluid">
+						<h1 class="section-heading text-primary no-after mb-4">
+							{{data.0.1}}
+						</h1>
+						<p class="text-black lead">Address : <b>{{data.0.5}}</b></p>
+
+						<div class="spacer-10"></div>
+						<!-- <h3 class="text-primary no-after mb-4">
+							What We Do
+						</h3> -->
+
+                        <h3 class=" text-left text-primary no-after mb-5">
+                            View Products
+                        </h3>
+                        <p class="subheading text-left">Your pet's health and well-being are our top priority.</p>
+                        <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+                            {% csrf_token %}
+                    <div class="row">
+                    
+                    
+                    <div class="col-sm-6 col-md-6" style="margin-left: 25%;">
+                    <div class="form-group">
+                    <select class="form-control" name="category">
+                        <option>Select Category</option>
+                        {% for d in data2 %}
+                        <option value="{{d.1}}">{{d.1}}</option>
+                        {% endfor %}
+                    </select>            <div class="help-block with-errors"></div>
+                    </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                    <!-- <input type="email" class="form-control" id="center" name="mail" placeholder="Email Id " value="{{data.0.3}}" required> -->
+                    <div class="help-block with-errors"></div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="row">
+                    
+                    
+                    
+                    <div class="form-group" style="margin-left: 43%;">
+                    <div class="text-center" >
+                    <div id="success"></div>
+                    <input type="submit" name="submit" class="btn btn-primary" value="Search">
+                    </div>
+                    </div>
+                    </form>
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!-- <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <h2 class="section-heading text-center text-primary no-after mb-5">
+                View Products
+            </h2>
+            <p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+        </div>
+    </div>
+    <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST">
+        {% csrf_token %}
+<div class="row">
+
+
+<div class="col-sm-6 col-md-6" style="margin-left: 25%;">
+<div class="form-group">
+<select class="form-control" name="category">
+    <option>Select Category</option>
+    {% for d in data2 %}
+    <option value="{{d.1}}">{{d.1}}</option>
+    {% endfor %}
+</select>        
+    <div class="help-block with-errors"></div>
+</div>
+</div>
+<div class="col-sm-6 col-md-6">
+<div class="form-group"> -->
+<!-- <input type="email" class="form-control" id="center" name="mail" placeholder="Email Id " value="{{data.0.3}}" required> -->
+<!-- <div class="help-block with-errors"></div>
+</div>
+</div>
+</div> -->
+<!-- 
+<div class="row">
+
+
+
+<div class="form-group" style="margin-left: 43%;">
+<div class="text-center" >
+<div id="success"></div>
+<input type="submit" name="submit" class="btn btn-primary" value="Search">
+</div>
+</div>
+</form></div> -->
+    <div class="row mt-4">
+        {% for d in data1 %}
+        <!-- Item 1 -->
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="rs-team-1 mb-5">
+                
+                <div class="media">
+                    <a href="../shop_view_item?reg_id={{d.0}}"><img src="../static{{d.3}}" alt="{{d.1}}" width="200px" height="200px"></a>
+                    <div class="sosmed-icon">
+                        <!-- <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a> -->
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title"><a href="../shop_view_item?reg_id={{d.0}}">{{d.2}}</a></div>
+                    <div class="text-primary">Rate : <b>{{d.5}} Rs</b></div>
+                    <div class="text-primary">Quantity Available : <b>{{d.6}} Rs</b></div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Item 2 -->
+        <!-- <div class="col-12 col-sm-6 col-md-4">
+            <div class="rs-team-1 mb-5">
+                <div class="media">
+                    <a href="page-single-staff.html"><img src="images/vet06.jpg" alt="" class="img-fluid"></a>
+                    <div class="sosmed-icon">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title"><a href="page-single-staff.html">Dr. Mellisa Doel</a></div>
+                    <div class="text-primary">Veterinary</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Item 3 -->
+        <!-- <div class="col-12 col-sm-6 col-md-4">
+            <div class="rs-team-1 mb-5">
+                <div class="media">
+                    <a href="page-single-staff.html"><img src="images/vet07.jpg" alt="" class="img-fluid"></a>
+                    <div class="sosmed-icon">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title"><a href="page-single-staff.html">Dr. Aldizza Doel</a></div>
+                    <div class="text-primary">Veterinary</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Item 4 -->
+        <!-- <div class="col-12 col-sm-6 col-md-4">
+            <div class="rs-team-1 mb-5">
+                <div class="media">
+                    <a href="page-single-staff.html"><img src="images/vet08.jpg" alt="" class="img-fluid"></a>
+                    <div class="sosmed-icon">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title"><a href="page-single-staff.html">Dr. Ronald Doel</a></div>
+                    <div class="text-primary">Veterinary</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Item 5 -->
+        <!-- <div class="col-12 col-sm-6 col-md-4">
+            <div class="rs-team-1 mb-5">
+                <div class="media">
+                    <a href="page-single-staff.html"><img src="images/vet09.jpg" alt="" class="img-fluid"></a>
+                    <div class="sosmed-icon">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title"><a href="page-single-staff.html">Dr. James Doel</</a></div>
+                    <div class="text-primary">Veterinary</div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Item 6 -->
+        <!-- <div class="col-12 col-sm-6 col-md-4">
+            <div class="rs-team-1 mb-5">
+                <div class="media">
+                    <a href="page-single-staff.html"><img src="images/vet10.jpg" alt="" class="img-fluid"></a>
+                    <div class="sosmed-icon">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="title"><a href="page-single-staff.html">Dr. Thomas Doel</a></div>
+                    <div class="text-primary">Veterinary</div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+
+</div>
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+        </script>
+{% endblock %}
+
+
+

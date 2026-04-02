@@ -1,0 +1,173 @@
+
+{% extends 'pet_header_footer.html' %}
+{% block add_product %}
+{% load static %}
+    
+{% if msg %}
+<script>
+    alert("{{msg}}")
+    
+</script>
+{% endif %}
+<!-- BANNER -->
+<div class="section banner-page" data-background="{% static 'images/pets-banner.jpg' %}">
+    <div class="content-wrap pos-relative">
+        <div class="d-flex justify-content-center bd-highlight mb-2">
+            <div class="title-page">Add Products</div>
+        </div>
+        <p class="text-center text-white">Your pet's health and well-being are our top priority.</p>
+    </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="section bg-breadcrumb">
+    <div class="content-wrap py-0 pos-relative">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb ">
+                <li class="breadcrumb-item"><a href="../admin_home/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+              </ol>
+            </nav>					
+        </div>
+    </div>
+</div>
+<!-- CONTENT -->
+<div id="class" class="">
+  <div class="content-wrap">
+    <div class="container">
+
+      
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 mb-5">
+          <h2 class="section-heading text-center text-primary no-after mb-5">
+           Your Profile
+          </h2>
+          <p class="subheading text-center">Your pet's health and well-being are our top priority.</p>
+        </div>
+<!-- Preview Image-->
+<script type='text/javascript'>
+    function preview_image(event) 
+    {
+    var reader = new FileReader();
+    reader.onload = function()
+    {
+    var output = document.getElementById('output_image');
+    output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+<!-- End Preview Image-->
+        <img src="" width="150px;" height="150px;" id="output_image" style="margin-left: 43%;"><br><br>
+
+        <div class="col-12 col-sm-12 col-md-12">
+          <form action="#" class="form-contact" data-toggle="validator" novalidate="true" method="POST" enctype="multipart/form-data">
+                          {% csrf_token %}
+            <div class="row">
+              
+
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                    <select class="form-control" name="category" required="">
+                        <option value="">Select Category</option>
+                        {% for d in data %}
+                        <option value="{{d.1}}">{{d.1}}</option>
+                        {% endfor %}
+                    </select>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                
+                <input class="form-control" type="file" Name="img" placeholder="img" accept="image/*" onchange="preview_image(event)" required="">
+                <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              
+              
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="name" pattern="[A-Za-z]{1}[A-Za-z\s]{2,32}" placeholder="Product Name" required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              
+            
+
+              <div class="col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" name="amount" placeholder="Amount of product"  required>
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              
+          </div>
+      
+
+
+      
+          <div class="row">
+
+            <div class="col-sm-6 col-md-6">
+              <div class="form-group">
+                <input type="text" class="form-control" name="quan" placeholder="Quantity Available"required>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-6">
+              <div class="form-group">
+               <textarea class="form-control" name="desc" rows="6" placeholder="Description about the product" required></textarea>
+               <!-- <input  type="checkbox"  onclick="myFunction()"> -->
+            <!-- <label onclick="myFunction()">show password</label> -->
+            <div class="help-block with-errors"></div>
+
+            </div>
+            </div>
+
+
+            <!-- script for show password -->
+    <script>
+      function myFunction() {
+          debugger;
+          var x = document.getElementById("myInput");
+          if (x.type === "password") {
+              x.type = "text";
+          } else {
+              x.type = "password";
+          }
+      }
+  </script>
+  </div>
+          
+            
+            <div class="form-group">
+              <div class="text-center">
+                <div id="success"></div>
+                <input type="submit" name="submit" class="btn btn-primary" value="Add Product">
+              </div>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  
+  <script>
+      if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+      }
+      </script>
+{% endblock %}
+
+
+
